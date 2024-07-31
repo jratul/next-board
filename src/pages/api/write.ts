@@ -1,5 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "@/util/database";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./auth/[...nextauth]";
 
 export default async function handler(
   req: NextApiRequest,
@@ -9,10 +11,13 @@ export default async function handler(
     return res.redirect("/write");
   }
 
+  const session = await getServerSession(req, res, authOptions);
+
   const title = req.body.title.trim();
   const content = req.body.content.trim();
+  const writer = session?.user?.email;
 
-  if (!title || !content) {
+  if (!title || !content || !writer) {
     return res.redirect("/write");
   }
 
@@ -21,6 +26,7 @@ export default async function handler(
     await db.collection("post").insertOne({
       title,
       content,
+      writer,
     });
 
     return res.redirect("/list");
