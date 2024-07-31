@@ -70,7 +70,7 @@ const authOptions = {
     },
   },
 
-  secret: "board-jwt-secret",
+  secret: process.env.JWT_SECRET,
   adapter: MongoDBAdapter(connectDB),
 };
 
