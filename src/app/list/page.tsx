@@ -1,7 +1,7 @@
 import { connectDB } from "@/util/database";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/api/auth/[...nextauth]/route";
+import { authOptions } from "@/util/authOptions";
 import ListItem from "./ListItem";
 
 export const dynamic = "force-dynamic";
