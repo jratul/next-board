@@ -11,6 +11,7 @@ export default async function handler(
     return res.redirect("/write");
   }
 
+  // @ts-ignore
   const session = await getServerSession(req, res, authOptions);
 
   const title = req.body.title.trim();

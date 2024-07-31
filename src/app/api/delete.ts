@@ -12,6 +12,7 @@ export default async function handler(
     return res.redirect("/list");
   }
 
+  // @ts-ignore
   const session = await getServerSession(req, res, authOptions);
   if (!session) {
     res.redirect("/list");

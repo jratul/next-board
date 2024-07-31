@@ -12,6 +12,7 @@ export default async function handler(
     return res.redirect(`/edit/${req.body._id}`);
   }
 
+  // @ts-ignore
   const session = await getServerSession(req, res, authOptions);
 
   const id = ObjectId.createFromHexString(req.body._id);

@@ -1,5 +1,6 @@
 import { ObjectId } from "mongodb";
 import { connectDB } from "@/util/database";
+import Comment from "./Comment";
 
 export default async function Detail({ params }: { params: { id: string } }) {
   const db = (await connectDB).db("forum");
@@ -10,6 +11,7 @@ export default async function Detail({ params }: { params: { id: string } }) {
     <div>
       <h1>{result?.title || ""}</h1>
       <p>{result?.content || ""}</p>
+      <Comment postId={params.id} />
     </div>
   );
 }

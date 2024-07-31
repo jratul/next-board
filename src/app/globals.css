@@ -59,3 +59,19 @@ button {
   border: none;
   border-radius: 5px;
 }
+
+.comment-bg {
+  background-color: lightblue;
+  padding: 10px;
+}
+
+.comment-item {
+  background-color: skyblue;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.comment-writer {
+  color: gray;
+}

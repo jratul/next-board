@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { authOptions } from "@/api/auth/[...nextauth]";
 import "./globals.css";
 import LoginBtn from "./LoginBtn";
 import LogoutBtn from "./LogoutBtn";
@@ -19,6 +19,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // @ts-ignore
   const session = await getServerSession(authOptions);
   return (
     <html lang="en">
