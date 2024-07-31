@@ -1,7 +1,6 @@
 import { MongoClient } from "mongodb";
 
-const mongoURI =
-  "mongodb+srv://jratul3:dkagh1234.@cluster0.9agunol.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const mongoURI = process.env.MONGODB_URI || "";
 
 const connectDB = new MongoClient(mongoURI).connect();
 

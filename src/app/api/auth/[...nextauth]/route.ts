@@ -5,11 +5,11 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
 import { connectDB } from "@/util/database";
 
-export const authOptions = {
+const authOptions = {
   providers: [
     GithubProvider({
-      clientId: "Ov23li1bVjHHmOCtzjzi",
-      clientSecret: "d5f79180b3c50ead4ff06f07cb8972f64146f3f3",
+      clientId: process.env.GITHUB_CLIENT_ID || "",
+      clientSecret: process.env.GITHUB_CLIENT_SECRET || "",
     }),
     CredentialsProvider({
       //1. 로그인페이지 폼 자동생성해주는 코드
@@ -74,4 +74,6 @@ export const authOptions = {
   adapter: MongoDBAdapter(connectDB),
 };
 
-export default NextAuth(authOptions as AuthOptions);
+const handler = NextAuth(authOptions as AuthOptions);
+
+export { authOptions, handler as GET, handler as POST };

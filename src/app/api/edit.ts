@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { ObjectId } from "mongodb";
 import { connectDB } from "@/util/database";
 import { getServerSession } from "next-auth";
-import { authOptions } from "./auth/[...nextauth]";
+import { authOptions } from "./auth/[...nextauth]/route";
 
 export default async function handler(
   req: NextApiRequest,

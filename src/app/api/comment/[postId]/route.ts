@@ -1,6 +1,6 @@
 import { connectDB } from "@/util/database";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../../auth/[...nextauth]";
+import { authOptions } from "../../auth/[...nextauth]/route";
 
 export async function GET(
   req: Request,
